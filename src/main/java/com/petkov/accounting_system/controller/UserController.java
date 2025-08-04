@@ -25,4 +25,10 @@ public class UserController {
     public User createUser(@RequestBody User user){
         return service.createUser(user);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable Long id){
+
+        return service.deleteUser(id);
+    }
 }

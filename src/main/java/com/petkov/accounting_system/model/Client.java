@@ -1,5 +1,6 @@
 package com.petkov.accounting_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,5 +31,6 @@ public class Client {
     private String address;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private List<Invoice> invoices;
 }

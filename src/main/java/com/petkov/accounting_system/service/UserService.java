@@ -28,4 +28,13 @@ public class UserService {
     public User findByUsername(String username){
         return repository.findByUsername(username).orElse(null);
     }
+
+    public String deleteUser(Long id){
+        User user = repository.findById(id).orElse(null);
+        repository.deleteById(id);
+
+        if (user == null) return "User not found!";
+
+        return  "User deleted!";
+    }
 }
